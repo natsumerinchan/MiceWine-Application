@@ -413,13 +413,10 @@ class MainActivity : AppCompatActivity() {
 
             progressBarIsIndeterminate = true
 
-            copyAssets(this@MainActivity, "rootfs.zip", appRootDir.toString())
-
             dialogTitleText = getString(R.string.extracting_resources_text)
 
-            extractZip("$appRootDir/rootfs.zip", "$appRootDir")
+            extractZip("/sdcard/rootfs.zip", "$appRootDir")
 
-            File("$appRootDir/rootfs.zip").delete()
 
             File("$appRootDir/wine-utils/CoreFonts").copyRecursively(File("$appRootDir/wine/share/wine/fonts"), true)
 

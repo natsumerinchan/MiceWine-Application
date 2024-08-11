@@ -1,14 +1,13 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    kotlin("plugin.serialization")
+    id("kotlin-android")
 }
 
 android {
     namespace = "com.micewine.emu"
     compileSdk = 34
     ndkVersion = "26.1.10909125"
-    buildToolsVersion = "34.0.0"
+    buildToolsVersion = "34.0.4"
     
     defaultConfig {
         applicationId = "com.micewine.emu"
@@ -76,9 +75,9 @@ android {
 
 dependencies {
     // androidx 
-    implementation("androidx.appcompat:appcompat:1.7.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
     implementation("androidx.preference:preference-ktx:1.2.1")
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
@@ -90,8 +89,8 @@ dependencies {
     
     // others
     implementation("net.lingala.zip4j:zip4j:2.11.5")
-    implementation("org.apache.commons:commons-compress:1.26.1")
+    implementation("org.apache.commons:commons-compress:1.20")
     implementation("com.google.code.gson:gson:2.10.1")
     
-    implementation(project(":app:stub"))
+    compileOnly(project(":loader:stub"))
 }
