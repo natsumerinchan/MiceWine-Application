@@ -7,7 +7,9 @@ plugins {
 android {
     namespace = "com.micewine.emu"
     compileSdk = 34
-
+    ndkVersion = "26.1.10909125"
+    buildToolsVersion = "34.0.0"
+    
     defaultConfig {
         applicationId = "com.micewine.emu"
         minSdk = 28
@@ -16,9 +18,7 @@ android {
         versionCode = 13
         versionName = "13"
     }
-
-    ndkVersion = "26.1.10909125"
-
+    
     buildTypes {
         debug {
             isMinifyEnabled = false
@@ -50,6 +50,9 @@ android {
         getByName("main") {
             aidl.srcDirs("src/main/aidl")
         }
+        getByName("main") {
+            jniLibs.srcDirs("libs")
+        }
     }
     
     buildFeatures {
@@ -67,22 +70,26 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-
-    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
-    implementation("net.lingala.zip4j:zip4j:2.11.5")
+    // androidx 
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4")
     implementation("androidx.preference:preference-ktx:1.2.1")
-    implementation("org.apache.commons:commons-compress:1.26.1")
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
     implementation("androidx.activity:activity-ktx:1.9.1")
+    
+    // material
+    implementation("com.google.android.material:material:1.12.0")
+    
+    // others
+    implementation("net.lingala.zip4j:zip4j:2.11.5")
+    implementation("org.apache.commons:commons-compress:1.26.1")
     implementation("com.google.code.gson:gson:2.10.1")
+    
     implementation(project(":app:stub"))
 }
