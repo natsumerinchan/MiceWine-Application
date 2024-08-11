@@ -7,7 +7,7 @@ android {
     namespace = "com.micewine.emu"
     compileSdk = 34
     ndkVersion = "26.1.10909125"
-    buildToolsVersion = "34.0.4"
+    // buildToolsVersion = "34.0.4"
     
     defaultConfig {
         applicationId = "com.micewine.emu"
